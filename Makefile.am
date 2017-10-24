@@ -22,10 +22,25 @@
 SUBDIRS = man
 bin_PROGRAMS = bdftopcf
 
-AM_CFLAGS = $(CWARNFLAGS) @BDFTOPCF_CFLAGS@
-bdftopcf_LDADD  = @BDFTOPCF_LIBS@
+AM_CFLAGS = $(CWARNFLAGS)
 
-bdftopcf_SOURCES = bdftopcf.c
+bdftopcf_SOURCES = \
+	atom.c \
+	bdfread.c \
+	bdfutils.c \
+	bitmap.c \
+	bitmaputil.c \
+	bufio.c \
+	defaults.c \
+	fileio.c \
+	filewr.c \
+	fontaccel.c \
+	fontink.c \
+	pcfwrite.c \
+	private.c \
+	stubs.h \
+	utilbitmap.c \
+	bdftopcf.c
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
 
