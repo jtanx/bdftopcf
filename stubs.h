@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <X11/fonts/fntfilst.h>
-#include <X11/fonts/font.h>
+#include "fntfilst.h"
+#include "font.h"
 
 #ifndef True
 #define True (-1)

@@ -54,11 +54,11 @@ from The Open Group.
 #endif
 
 #include <ctype.h>
-#include <X11/fonts/fntfilst.h>
-#include <X11/fonts/fontutil.h>
+#include "fntfilst.h"
+#include "fontutil.h"
 /* use bitmap structure */
-#include <X11/fonts/bitmap.h>
-#include <X11/fonts/bdfint.h>
+#include "bitmap.h"
+#include "bdfint.h"
 
 #if HAVE_STDINT_H
 #include <stdint.h>

@@ -30,9 +30,9 @@ from The Open Group.
 #include <config.h>
 #endif
 
-#include <X11/fonts/fntfilst.h>
-#include <X11/fonts/bitmap.h>
-#include <X11/fonts/bdfint.h>
+#include "fntfilst.h"
+#include "bitmap.h"
+#include "bdfint.h"
 
 #ifndef MAXSHORT
 #define MAXSHORT    32767

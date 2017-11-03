@@ -33,9 +33,9 @@ from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include    <X11/fonts/fontmisc.h>
+#include    "fontmisc.h"
 #include    <X11/fonts/fontstruct.h>
-#include    <X11/fonts/fontutil.h>
+#include    "fontutil.h"
 
 void
 FontComputeInfoAccelerators(FontInfoPtr pFontInfo)

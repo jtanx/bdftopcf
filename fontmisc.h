@@ -28,37 +28,73 @@ in this Software without prior written authorization from The Open Group.
  * Author:  Keith Packard, MIT X Consortium
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
+#ifndef _FONTMISC_H_
+#define _FONTMISC_H_
+
+#include <X11/Xfuncs.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <X11/Xdefs.h>
+
+
+#ifndef LSBFirst
+#define LSBFirst	0
+#define MSBFirst	1
 #endif
-#include "fntfilio.h"
-#include <X11/Xos.h>
-#ifndef O_BINARY
-#define O_BINARY	0
-#endif
-#ifndef O_CLOEXEC
-#define O_CLOEXEC	0
+
+#ifndef None
+#define None	0l
 #endif
 
-FontFilePtr
-FontFileOpenWrite (const char *name)
-{
-    int	fd;
+#ifndef TRUE
+#define TRUE 1
+#define FALSE 0
+#endif
 
-    fd = open (name, O_CREAT|O_TRUNC|O_RDWR|O_BINARY|O_CLOEXEC, 0666);
-    if (fd < 0)
-	return 0;
-    return (FontFilePtr) BufFileOpenWrite (fd);
-}
+extern Atom MakeAtom ( const char *string, unsigned len, int makeit );
+extern int ValidAtom ( Atom atom );
+extern char *NameForAtom (Atom atom);
 
-FontFilePtr
-FontFileOpenWriteFd (int fd)
-{
-    return (FontFilePtr) BufFileOpenWrite (fd);
-}
+#define lowbit(x) ((x) & (~(x) + 1))
 
-FontFilePtr
-FontFileOpenFd (int fd)
-{
-    return (FontFilePtr) BufFileOpenRead (fd);
-}
+#undef assert
+#define assert(x)	((void)0)
+
+extern void
+BitOrderInvert(
+    register unsigned char *,
+    register int
+);
+
+extern void
+TwoByteSwap(
+    register unsigned char *,
+    register int
+);
+
+extern void
+FourByteSwap(
+    register unsigned char *,
+    register int
+);
+
+extern int
+RepadBitmap (
+    char*,
+    char*,
+    unsigned,
+    unsigned,
+    int,
+    int
+);
+
+extern void CopyISOLatin1Lowered(
+    char * /*dest*/,
+    const char * /*source*/,
+    int /*length*/
+);
+
+extern void register_fpe_functions(void);
+
+#endif /* _FONTMISC_H_ */

@@ -62,7 +62,7 @@ in this Software without prior written authorization from The Open Group.
 #define DEFAULT_SCAN_UNIT 1
 #endif
 
-#include <X11/fonts/fntfilst.h>
+#include "fntfilst.h"
 
 void
 FontDefaultFormat (int *bit, int *byte, int *glyph, int *scan)

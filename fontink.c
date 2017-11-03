@@ -34,9 +34,9 @@ from The Open Group.
 #include <config.h>
 #endif
 
-#include <X11/fonts/fntfilst.h>
-#include <X11/fonts/bitmap.h>
-#include <X11/fonts/bdfint.h>
+#include "fntfilst.h"
+#include "bitmap.h"
+#include "bdfint.h"
 
 static unsigned char ink_mask_msb[8] = {
     0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01,

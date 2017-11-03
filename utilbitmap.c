@@ -31,7 +31,7 @@ in this Software without prior written authorization from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include <X11/fonts/fontmisc.h>
+#include "fontmisc.h"
 
 /* Utility functions for reformating font bitmaps */
 

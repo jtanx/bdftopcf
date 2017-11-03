@@ -28,37 +28,26 @@ in this Software without prior written authorization from The Open Group.
  * Author:  Keith Packard, MIT X Consortium
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-#include "fntfilio.h"
-#include <X11/Xos.h>
-#ifndef O_BINARY
-#define O_BINARY	0
-#endif
-#ifndef O_CLOEXEC
-#define O_CLOEXEC	0
-#endif
+#ifndef _FNTFILIO_H_
+#define _FNTFILIO_H_
 
-FontFilePtr
-FontFileOpenWrite (const char *name)
-{
-    int	fd;
+#include "bufio.h"
 
-    fd = open (name, O_CREAT|O_TRUNC|O_RDWR|O_BINARY|O_CLOEXEC, 0666);
-    if (fd < 0)
-	return 0;
-    return (FontFilePtr) BufFileOpenWrite (fd);
-}
+typedef BufFilePtr  FontFilePtr;
 
-FontFilePtr
-FontFileOpenWriteFd (int fd)
-{
-    return (FontFilePtr) BufFileOpenWrite (fd);
-}
+#define FontFileGetc(f)	    BufFileGet(f)
+#define FontFilePutc(c,f)   BufFilePut(c,f)
+#define FontFileRead(f,b,n) BufFileRead(f,b,n)
+#define FontFileWrite(f,b,n)	BufFileWrite(f,b,n)
+#define FontFileSkip(f,n)   (BufFileSkip (f, n) != BUFFILEEOF)
+#define FontFileSeek(f,n)   (BufFileSeek (f,n,0) != BUFFILEEOF)
 
-FontFilePtr
-FontFileOpenFd (int fd)
-{
-    return (FontFilePtr) BufFileOpenRead (fd);
-}
+#define FontFileEOF	BUFFILEEOF
+
+extern FontFilePtr FontFileOpen ( const char *name );
+extern int FontFileClose ( FontFilePtr f );
+extern FontFilePtr FontFileOpenWrite ( const char *name );
+extern FontFilePtr FontFileOpenWriteFd ( int fd );
+extern FontFilePtr FontFileOpenFd ( int fd );
+
+#endif /* _FNTFILIO_H_ */

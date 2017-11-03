@@ -34,9 +34,9 @@ from The Open Group.
 #include <config.h>
 #endif
 
-#include <X11/fonts/fntfilst.h>
-#include <X11/fonts/bitmap.h>
-#include <X11/fonts/pcf.h>
+#include "fntfilst.h"
+#include "bitmap.h"
+#include "pcf.h"
 
 #include <stdarg.h>
 #include <stdio.h>
