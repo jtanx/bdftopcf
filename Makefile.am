@@ -22,7 +22,8 @@
 SUBDIRS = man
 bin_PROGRAMS = bdftopcf
 
-AM_CFLAGS = $(CWARNFLAGS)
+AM_CFLAGS = $(BDFTOPCF_CFLAGS) $(CWARNFLAGS)
+bdftopcf_LDADD = $(BDFTOPCF_LIBS)
 
 bdftopcf_SOURCES = \
 	atom.c \

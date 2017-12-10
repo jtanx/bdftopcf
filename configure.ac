@@ -38,6 +38,8 @@ XORG_DEFAULT_OPTIONS
 
 XORG_WITH_LINT
 
+PKG_CHECK_MODULES(BDFTOPCF, [xproto >= 7.0.22 fontsproto >= 2.1.3])
+
 AC_CONFIG_FILES([
 	Makefile
 	man/Makefile])
